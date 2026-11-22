@@ -1,7 +1,11 @@
 # Menu book engine (mobile first, no framework)
 
 Reference build: https://itprior-innovations.github.io/alpha-hotel-3d-menu/ (repo itprior-innovations/alpha-hotel-3d-menu).
-Static files only. Hosting claims here come from GitHub docs and were not newly verified. No deployment is authorised for RK Beach yet.
+Static files only. This repository is the RK Beach illustrative prototype (not a live menu, no orders, price pending). Pages: https://itprior-innovations.github.io/rk-beach-muri-3d-menu/
+
+Credit: Original procedural 3D geometry for the RK Beach illustrative prototype. Menu engine scaffold supplied by ITPrior.
+
+Provenance and publication scope: see RIGHTS.md (supplied with the 3D source). No open-source licence is named. Use is limited to this project.
 
 ## What the customer sees
 Book first: course tabs (Starters, Main course, Desserts, Drinks; only courses with dishes show), a veg / non-veg switch, and pages of dishes (one page on phones, two pages on wide screens). Tap a dish to open it full screen (3D if it has a renderer, otherwise its photo). Heart = "I want this", "My picks" shows the list for the waiter (no totals, no ordering, stored on the phone only). First-visit hint. Language select with search.
@@ -32,7 +36,7 @@ Register before mounting: `MenuApp.registerRenderer('name', factory)`. Set `"ren
 - If `mount` throws, the engine shows the dish photo instead.
 - Touch and drag inside `el` belongs to the renderer; swiping to the next dish is ignored there.
 - Keep it light for phones (the Alpha biryani model is 325 KB). Avoid meshopt or Draco files: they failed in headless Chrome.
-The engine does not contain a food renderer. RK Beach's WebGL rice and bowl comes from Sarswathi's side.
+The engine does not contain a food renderer. The RK Beach WebGL paper cone and mixture is in `muri-webgl.js` (wrapped by `muri-renderer.js`), supplied for this prototype.
 
 ## Make a new restaurant
-Copy the files, edit `56-menu.json` (only confirmed names, prices, photos), set brand colours at the top of `alpha.css`, test at 390x844. Do not publish until the owner authorises it.
+Copy the files, edit `56-menu.json` (only confirmed names, prices, photos), set brand colours at the top of `alpha.css`, test at 390x844. Menu field `allCourses:false` shows only courses that have dishes; `credit` shows a footer line.
