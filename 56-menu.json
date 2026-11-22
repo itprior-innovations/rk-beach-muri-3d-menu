@@ -1,19 +1,30 @@
 {
-  "name": "RK Beach Muri Mixture (DEMO)",
-  "place": "RK Beach, Visakhapatnam",
-  "phone": "",
-  "currency": "₹",
-  "cats": ["snacks"],
-  "items": [
-    {
-      "id": "mm",
-      "img": "muri-mixture",
-      "glb": "",
-      "cat": "snacks",
-      "veg": 1,
-      "price": 0,
-      "n": { "en": "Muri Mixture", "te": "మురి మిక్చర్" },
-      "d": { "en": "Placeholder text. Replace with vendor-confirmed description.", "te": "" }
-    }
-  ]
+ "name": "RK Beach Muri Mixture (DEMO)",
+ "brand": "RK Beach Muri",
+ "tagline": {
+  "en": "Concept preview, not a live menu"
+ },
+ "place": "RK Beach, Visakhapatnam",
+ "currency": "₹",
+ "cats": [
+  "starters"
+ ],
+ "items": [
+  {
+   "id": "mm",
+   "img": "muri-mixture",
+   "glb": "",
+   "cat": "starters",
+   "veg": null,
+   "price": null,
+   "n": {
+    "en": "Muri Mixture",
+    "te": "మురి మిక్చర్"
+   },
+   "d": {
+    "en": "Placeholder text. Replace with vendor-confirmed description.",
+    "te": ""
+   }
+  }
+ ]
 }
