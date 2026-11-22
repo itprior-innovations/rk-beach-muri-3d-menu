@@ -2,7 +2,7 @@
 
 | Item | Source | License / terms | Notes |
 |---|---|---|---|
-| model-viewer 3.5.0 | https://github.com/google/model-viewer, loaded from unpkg CDN | Apache-2.0 | Free for commercial use. Keep notice if you self-host. |
+| model-viewer 3.5.0 | https://github.com/google/model-viewer, loaded from unpkg CDN | Apache-2.0 | Optional. Not loaded by the RK Beach index.html. Free for commercial use; keep notice if you self-host. |
 | Fonts: Cinzel, Playfair Display, Noto Sans family | Google Fonts | SIL Open Font License 1.1 | Free for commercial use. |
 | Google Translate widget ("More languages") | Google | Google Website Translator terms | Free widget, not our code. Terms can change. |
 | gltf-transform (build tool only) | https://github.com/donmccurdy/glTF-Transform | MIT | Not shipped to users. |
