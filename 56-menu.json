@@ -4,26 +4,153 @@
  "tagline": {
   "en": "Illustrative prototype"
  },
- "currency": "",
- "allCourses": false,
- "credit": "Original procedural 3D geometry for the RK Beach illustrative prototype. Menu engine scaffold supplied by ITPrior.",
- "cats": [
-  "starters"
+ "currency": "₹",
+ "tabs": [
+  {
+   "id": "mixtures",
+   "label": "Mixtures"
+  },
+  {
+   "id": "bajjis",
+   "label": "Bajjis"
+  },
+  {
+   "id": "slices",
+   "label": "Slices & sides"
+  }
  ],
+ "credit": "Original procedural 3D geometry for the RK Beach illustrative prototype. Menu engine scaffold supplied by ITPrior.",
+ "notice": "Illustrative menu. Sample prices only. Seller, portions, availability, ingredients and customizations are not confirmed. No orders or payments.",
  "items": [
   {
-   "id": "mm",
+   "id": "muri-mixture",
    "img": "",
-   "glb": "",
-   "renderer": "original-webgl",
-   "cat": "starters",
+   "glb": null,
+   "cat": "mixtures",
    "veg": null,
    "price": null,
+   "demo_price_inr": 40,
+   "spice": true,
    "n": {
     "en": "Muri mixture"
    },
    "d": {
-    "en": "Illustrative interaction study. Vendor, actual menu, ingredients, allergens, prices and food imagery are not confirmed. This preview cannot take orders."
+    "en": "Puffed-rice mixture with tangy, spicy street-snack character. Exact mix varies by seller."
+   },
+   "renderer": "original-webgl",
+   "imgUrl": "data:image/webp;base64,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"
+  },
+  {
+   "id": "tomato-slices",
+   "img": "",
+   "glb": null,
+   "cat": "slices",
+   "veg": null,
+   "price": null,
+   "demo_price_inr": 40,
+   "spice": true,
+   "n": {
+    "en": "Tomato slices"
+   },
+   "d": {
+    "en": "A tomato-slice snack option. Preparation, toppings and portion await seller confirmation."
+   }
+  },
+  {
+   "id": "tomato-bajji",
+   "img": "",
+   "glb": null,
+   "cat": "bajjis",
+   "veg": null,
+   "price": null,
+   "demo_price_inr": 50,
+   "spice": true,
+   "n": {
+    "en": "Tomato bajji"
+   },
+   "d": {
+    "en": "A battered tomato snack, often served cut and filled. Seller style and portion may differ."
+   }
+  },
+  {
+   "id": "mirchi-bajji",
+   "img": "",
+   "glb": null,
+   "cat": "bajjis",
+   "veg": null,
+   "price": null,
+   "demo_price_inr": 40,
+   "spice": true,
+   "n": {
+    "en": "Mirchi bajji"
+   },
+   "d": {
+    "en": "Chilli fritters. Filling, added masala and serving size need seller confirmation."
+   },
+   "spice_note": "Less added chilli does not remove the chilli used in the fritter."
+  },
+  {
+   "id": "aratikaya-bajji",
+   "img": "",
+   "glb": null,
+   "cat": "bajjis",
+   "veg": null,
+   "price": null,
+   "demo_price_inr": 40,
+   "spice": true,
+   "n": {
+    "en": "Aratikaya bajji"
+   },
+   "d": {
+    "en": "Raw banana fritters. Batter-fried raw banana slices; serving and any topping mix await seller confirmation."
+   }
+  },
+  {
+   "id": "peanut-masala",
+   "img": "",
+   "glb": null,
+   "cat": "mixtures",
+   "veg": null,
+   "price": null,
+   "demo_price_inr": 40,
+   "spice": true,
+   "n": {
+    "en": "Peanut masala"
+   },
+   "d": {
+    "en": "A seasoned peanut snack; the final mix and serving size vary by seller."
+   }
+  },
+  {
+   "id": "masala-batani",
+   "img": "",
+   "glb": null,
+   "cat": "mixtures",
+   "veg": null,
+   "price": null,
+   "demo_price_inr": 40,
+   "spice": true,
+   "n": {
+    "en": "Masala batani"
+   },
+   "d": {
+    "en": "Seasoned peas. A seaside peas-and-masala snack. Exact recipe and portion await seller confirmation."
+   }
+  },
+  {
+   "id": "raw-mango-slices",
+   "img": "",
+   "glb": null,
+   "cat": "slices",
+   "veg": null,
+   "price": null,
+   "demo_price_inr": 30,
+   "spice": true,
+   "n": {
+    "en": "Raw mango slices"
+   },
+   "d": {
+    "en": "Tangy mango slices with a seasoning preference preview. Confirm availability and seller preparation."
    }
   }
  ]
