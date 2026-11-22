@@ -39,7 +39,7 @@ async function mount(root,opts){
  if(M.tabs)cOf=i=>i.cat;const courses=M.tabs?M.tabs.map(x=>x.id):['starters','main','desserts','drinks'].filter(c=>M.allCourses===false?M.items.some(i=>cOf(i)==c):true);const tl=c=>M.tabs?esc(((M.tabs.find(x=>x.id==c))||{}).label||c):t(c);const pr=i=>isNum(i.price)?money(i.price):isNum(i.demo_price_inr)?esc(M.currency)+i.demo_price_inr+' · '+SAMPLE:'';let SP={};try{SP=JSON.parse(st.get('sp','{}'))||{}}catch(e){SP={}}
  let cf=courses[0],vf='all',pg=0,det=-1,inst=null,dir=0;
  const isPk=i=>PK.includes(i.id),savePk=()=>st.set('pk',JSON.stringify(PK));
- const vis=()=>M.items.map((i,x)=>x).filter(x=>cOf(M.items[x])==cf&&(vf=='all'||(M.items[x].veg!=null&&(vf=='veg')==!!M.items[x].veg)));
+ const vis=()=>M.items.map((i,x)=>x).filter(x=>(M.oneList||cOf(M.items[x])==cf)&&(vf=='all'||(M.items[x].veg!=null&&(vf=='veg')==!!M.items[x].veg)));
  const cols=()=>innerWidth>=900?2:1,ps=()=>innerHeight<700?3:4;
  const E=h=>{const d=document.createElement('div');d.innerHTML=h.trim();return d.firstChild};
  root.innerHTML=`<div id="app"><header><div class="hl"><button class="ib" id="bp" aria-label="picks">${ic.heart}<em id="pc"></em></button></div><div class="mark"><b id="wm"></b><i id="spec"></i></div><button class="ib lp" id="bl">${ic.globe}<span id="lc"></span></button></header><nav id="flt"></nav><main id="book"></main>${M.notice?`<p class="credit">${esc(M.notice)}</p>`:''}${M.credit?`<p class="credit">${esc(M.credit)}</p>`:''}</div><div class="sheet" id="sheet" hidden></div><div id="det" hidden></div>`;
@@ -50,7 +50,7 @@ async function mount(root,opts){
  function row(x){const i=M.items[x];return `<div class="dish" data-x="${x}" tabindex="0" role="button" aria-label="${nm(i).replace(/<[^>]*>/g,'')}">${IMG(i)?`<img src="${IMG(i)}" alt="" loading="lazy">`:'<span class="noimg"></span>'}<div class="dt"><b>${vgs(i)}${nm(i)}${has3d(i)?'<span class="t3">3D</span>':''}</b><small>${ds(i)}</small><em>${pr(i)}</em></div><button class="hb ${isPk(i)?'on':''}" data-h="${x}" aria-label="${t('pick')}">${ic.heart}</button></div>`}
  function book(){const v=vis(),c=cols();let n=ps(),per=n*c,sc=false;if(v.length>per){sc=true;per=v.length;n=Math.ceil(v.length/c)}const pages=Math.max(1,Math.ceil(v.length/per));if(pg>=pages)pg=pages-1;if(pg<0)pg=0;
   const sl=v.slice(pg*per,pg*per+per),b=$('#book');
-  const pageHtml=(arr,first)=>`<section class="page">${first?`<h1>${tl(cf)}</h1>`:'<h1>&nbsp;</h1>'}${arr.map(row).join('')}</section>`;
+  const pageHtml=(arr,first)=>`<section class="page">${first?`<h1>${M.oneList?'Menu':tl(cf)}</h1>`:'<h1>&nbsp;</h1>'}${arr.map(row).join('')}</section>`;
   b.innerHTML=v.length?`<div class="paper ${sc?'sc ':''}${dir>0?'tn':dir<0?'tp':''}">${c==2&&sl.length>n?pageHtml(sl.slice(0,n),1)+pageHtml(sl.slice(n),0):pageHtml(sl,1)}</div><div class="pgn ${pages<2?'one':''}"><button class="ib" id="pp" ${pg==0?'disabled':''} aria-label="prev">${ic.l}</button><span>${pg+1} / ${pages}</span><button class="ib" id="pn" ${pg>=pages-1?'disabled':''} aria-label="next">${ic.r}</button></div>`:`<div class="emp">${M.items.some(i=>cOf(i)==cf)?t('none'):'<b>'+esc(SOON[L]||SOON.en)+'</b>'}</div>`;
   const turn=d=>{const np=pg+d;if(np<0||np>=pages)return;pg=np;dir=d;book()};
   const pp=$('#pp'),pn=$('#pn');if(pp){const rt=RTL.includes(L);pp.onclick=()=>turn(-1);pn.onclick=()=>turn(1);let sx=null;const ppr=b.querySelector('.paper');ppr.ontouchstart=e=>sx=e.touches[0].clientX;ppr.ontouchend=e=>{if(sx==null)return;const d=e.changedTouches[0].clientX-sx;sx=null;if(Math.abs(d)>60)turn((d<0?1:-1)*(rt?-1:1))}}
