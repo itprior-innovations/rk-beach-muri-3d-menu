@@ -9,6 +9,6 @@
 | 3D biryani model | Made with HuggingFace Space trellis-community/TRELLIS (Microsoft TRELLIS) | TRELLIS code and models are MIT | Output from an AI model. Check the Space page and model card for current terms before commercial use. Input photo was AI-generated. |
 | Dish photos | AI-generated images made for this demo | Not stock, not the restaurant's own photos | No third-party photo rights known. Not real photos of the dishes. Do not present as the restaurant's food. |
 | Alpha Hotel name, prices, dish names | Public Zomato listing and public YoVizag article | Belong to the restaurant / publishers | Demo only. Wordmark was recreated from a public shop-sign photo, not an official logo. |
-| Engine code (alpha.js, alpha.css, index.html), UI strings | Written for ITPrior | ITPrior owns it (Sivendra Kumar's decision on licence) | No licence file added yet. Translations are machine-made. Only te, hi, en were human-reviewed. |
+| Engine code (alpha.js, alpha.css, index.html), UI strings | Written for ITPrior | ITPrior owns it. Sivendra confirmed on 22 Nov 2026 reuse for the RK Beach project only | No wider licence implied, no licence file added. Translations are machine-made. Telugu, Hindi and English text was reviewed by an AI assistant, not signed off by native speakers. |
 
 Unconfirmed: whether a copyright note is needed for the TRELLIS output, and Google Translate widget terms for commercial pages.
