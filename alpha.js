@@ -31,7 +31,7 @@ async function mount(root,opts){
  if(f&&/^[A-Za-z0-9+\/=\s]+$/.test(f))FISH='data:image/webp;base64,'+f.trim();
  try{const b=gp.join('').replace(/\s/g,'');if(b){const x=atob(b),u=new Uint8Array(x.length);for(let i=0;i<x.length;i++)u[i]=x.charCodeAt(i);GLBURL=URL.createObjectURL(new Blob([u],{type:'model/gltf-binary'}))}}catch(e){}
  if(my!==gen)return;
- const IMG=i=>esc(safeUrl(A[i.img]||i.imgUrl)||FISH);
+ const IMG=i=>esc(safeUrl(A[i.img]||i.imgUrl)||(i.img?FISH:''));
  const hasR=i=>!!(i.renderer&&REN[i.renderer]);
  const hasMV=i=>!!i.glb&&!!GLBURL&&!!(window.customElements&&(window.USE_MV||customElements.get('model-viewer')));
  const has3d=i=>hasR(i)||hasMV(i);
@@ -48,10 +48,10 @@ async function mount(root,opts){
  function flt(){const f=$('#flt');f.innerHTML=`<div class="tabs">${courses.map(c=>`<button data-c="${c}" class="${c==cf?'on':''}">${t(c)}</button>`).join('')}</div><div class="diet">${[['all','all'],['veg','veg'],['nv','nonveg']].map(([k,l])=>`<button data-v="${k}" class="${k==vf?'on':''}">${k=='all'?'':`<span class="vg ${k=='nv'?'nv':''}"></span>`}${t(l)}</button>`).join('')}</div>`;
   f.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>{cf=b.dataset.c;pg=0;dir=0;render()});f.querySelectorAll('[data-v]').forEach(b=>b.onclick=()=>{vf=b.dataset.v;pg=0;dir=0;render()})}
  function row(x){const i=M.items[x];return `<div class="dish" data-x="${x}" tabindex="0" role="button" aria-label="${nm(i).replace(/<[^>]*>/g,'')}">${IMG(i)?`<img src="${IMG(i)}" alt="" loading="lazy">`:'<span class="noimg"></span>'}<div class="dt"><b>${vgs(i)}${nm(i)}${has3d(i)?'<span class="t3">3D</span>':''}</b><small>${ds(i)}</small><em>${money(i.price)}</em></div><button class="hb ${isPk(i)?'on':''}" data-h="${x}" aria-label="${t('pick')}">${ic.heart}</button></div>`}
- function book(){const v=vis(),n=ps(),c=cols(),per=n*c,pages=Math.max(1,Math.ceil(v.length/per));if(pg>=pages)pg=pages-1;if(pg<0)pg=0;
+ function book(){const v=vis(),c=cols();let n=ps(),per=n*c,sc=false;if(v.length>per){sc=true;per=v.length;n=Math.ceil(v.length/c)}const pages=Math.max(1,Math.ceil(v.length/per));if(pg>=pages)pg=pages-1;if(pg<0)pg=0;
   const sl=v.slice(pg*per,pg*per+per),b=$('#book');
   const pageHtml=(arr,first)=>`<section class="page">${first?`<h1>${t(cf)}</h1>`:'<h1>&nbsp;</h1>'}${arr.map(row).join('')}</section>`;
-  b.innerHTML=v.length?`<div class="paper ${dir>0?'tn':dir<0?'tp':''}">${c==2?pageHtml(sl.slice(0,n),1)+pageHtml(sl.slice(n),0):pageHtml(sl,1)}</div><div class="pgn"><button class="ib" id="pp" ${pg==0?'disabled':''} aria-label="prev">${ic.l}</button><span>${pg+1} / ${pages}</span><button class="ib" id="pn" ${pg>=pages-1?'disabled':''} aria-label="next">${ic.r}</button></div>`:`<div class="emp">${M.items.some(i=>cOf(i)==cf)?t('none'):'<b>'+esc(SOON[L]||SOON.en)+'</b>'}</div>`;
+  b.innerHTML=v.length?`<div class="paper ${sc?'sc ':''}${dir>0?'tn':dir<0?'tp':''}">${c==2?pageHtml(sl.slice(0,n),1)+pageHtml(sl.slice(n),0):pageHtml(sl,1)}</div><div class="pgn ${pages<2?'one':''}"><button class="ib" id="pp" ${pg==0?'disabled':''} aria-label="prev">${ic.l}</button><span>${pg+1} / ${pages}</span><button class="ib" id="pn" ${pg>=pages-1?'disabled':''} aria-label="next">${ic.r}</button></div>`:`<div class="emp">${M.items.some(i=>cOf(i)==cf)?t('none'):'<b>'+esc(SOON[L]||SOON.en)+'</b>'}</div>`;
   const turn=d=>{const np=pg+d;if(np<0||np>=pages)return;pg=np;dir=d;book()};
   const pp=$('#pp'),pn=$('#pn');if(pp){const rt=RTL.includes(L);pp.onclick=()=>turn(-1);pn.onclick=()=>turn(1);let sx=null;const ppr=b.querySelector('.paper');ppr.ontouchstart=e=>sx=e.touches[0].clientX;ppr.ontouchend=e=>{if(sx==null)return;const d=e.changedTouches[0].clientX-sx;sx=null;if(Math.abs(d)>60)turn((d<0?1:-1)*(rt?-1:1))}}
   b.querySelectorAll('.dish').forEach(r=>{r.onkeydown=e=>{if((e.key=='Enter'||e.key==' ')&&e.target==r){e.preventDefault();openDet(+r.dataset.x)}};r.onclick=e=>{const h=e.target.closest('[data-h]');if(h){e.stopPropagation();tog(M.items[+h.dataset.h],h);return}openDet(+r.dataset.x)}})}
