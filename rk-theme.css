@@ -33,3 +33,5 @@ header{color:var(--cream)}
 .panel{background:#f3fcff;color:#0b4a63}
 #bp em{background:#ff6b4a;color:#fff}
 .fly svg{fill:#e2512f;stroke:#e2512f}
+
+#flt .diet[hidden]{display:none}#det.nm .dst{display:none}#det.nm{justify-content:center}.pend2{display:inline-block;background:#fff7dc;border:1px solid #f2d691;color:#0b4a63;font:600 12px sans-serif;padding:6px 14px;border-radius:99px;margin-bottom:8px}
