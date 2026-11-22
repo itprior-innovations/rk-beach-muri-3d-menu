@@ -3,16 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>RK Beach Muri (concept preview)</title>
+<title>RK Beach illustrative prototype</title>
+<meta name="description" content="Illustrative 3D interaction prototype. Not a live restaurant menu. No orders.">
 <meta name="theme-color" content="#2b170b">
+<link rel="icon" href="data:,">
 <link rel="stylesheet" href="alpha.css">
-<!-- Optional, add only when needed:
- fonts:        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Playfair+Display:wght@700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
- model-viewer: <script type="module" src="https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>  (and set window.USE_MV=1)
- renderer plugin: load your script, then MenuApp.registerRenderer('name', factory) before the menu mounts (set window.MENU_MANUAL=true, then MenuApp.mount()).
--->
-<script>window.MENU_URL="56-menu.json";window.NO_TRANSLATE=true;</script>
+<script>window.MENU_MANUAL=true;window.MENU_URL="56-menu.json";window.NO_TRANSLATE=true;</script>
 <script src="alpha.js"></script>
+<script type="module">
+import './muri-renderer.js';
+MenuApp.mount();
+</script>
 </head>
-<body></body>
+<body><noscript>Illustrative RK Beach prototype. It needs JavaScript. No orders can be placed here.</noscript></body>
 </html>
