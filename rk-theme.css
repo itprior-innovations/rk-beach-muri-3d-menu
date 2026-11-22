@@ -1,0 +1,35 @@
+/* RK Beach illustrative prototype: own beach look. Original SVG and CSS art, no photos. */
+:root{--cream:#0f3d52;--brown:#12394a;--gold:#ff6b4a;--maroon:#e2512f;--bg1:#cdeefa;--bg2:#fff4dc;--mut:#4d7384;--serif:"Trebuchet MS","Segoe UI",system-ui,sans-serif;--brand:"Trebuchet MS","Segoe UI",system-ui,sans-serif}
+html,body{background:#bfe8f7;color:var(--cream);font-family:"Segoe UI",system-ui,-apple-system,"Noto Sans",sans-serif}
+body{background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 800' preserveAspectRatio='xMidYMax slice'><defs><linearGradient id='s' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='%2377cdee'/><stop offset='1' stop-color='%23d9f4fb'/></linearGradient><linearGradient id='w' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='%232aa7c9'/><stop offset='1' stop-color='%2376d3e4'/></linearGradient></defs><rect width='400' height='800' fill='url(%23s)'/><circle cx='340' cy='-10' r='70' fill='%23ffe7a3' opacity='.55'/><circle cx='340' cy='-10' r='46' fill='%23ffd166'/><rect y='520' width='400' height='140' fill='url(%23w)'/><g fill='none' stroke='%23fff' stroke-width='2.5' opacity='.55' stroke-linecap='round'><path d='M20 560q20-10 40 0t40 0 40 0 40 0 40 0'/><path d='M150 600q20-10 40 0t40 0 40 0 40 0'/><path d='M-10 635q20-10 40 0t40 0 40 0 40 0'/></g><path d='M0 650q50-22 100-8t100 0 100-12 100 4V800H0z' fill='%23f6dfa8'/><path d='M0 650q50-22 100-8t100 0 100-12 100 4' fill='none' stroke='%23fff' stroke-width='6' opacity='.8'/><path d='M0 700q100-20 200 0t200-6V800H0z' fill='%23efcf8e' opacity='.7'/></svg>") center bottom/cover no-repeat,#bfe8f7}
+header{color:var(--cream)}
+.ib{background:#ffffffb8;border:1px solid #ffffff;color:var(--cream);box-shadow:0 4px 12px #0e506a22}
+.mark b{font:800 20px/1 var(--brand);letter-spacing:.14em;color:#0b4a63}
+.mark i{color:#e2512f;letter-spacing:.12em;font-weight:700}
+.mark:after{height:3px;width:44px;border-radius:3px;background:linear-gradient(90deg,#ff6b4a,#ffd166)}
+#flt button{background:#ffffffb0;color:var(--cream);border:1px solid #ffffff;box-shadow:0 3px 10px #0e506a1c}
+#flt button.on{background:#ff6b4a;color:#fff;border-color:#ff6b4a}
+.paper{flex:0 1 auto;align-self:stretch;background:#ffffffd9;backdrop-filter:blur(10px);border-radius:24px;box-shadow:0 14px 36px #0e506a33;color:var(--brown)}
+.paper.tn{animation:fade .28s ease}.paper.tp{animation:fade .28s ease}
+.page h1{font:800 21px var(--serif);color:#0b4a63;letter-spacing:.02em}
+.page+.page{border-inline-start:1px solid #0e506a1f;box-shadow:none}
+.dish{border-bottom:1px dashed #0e506a33}
+.dish img,.noimg{background:#fbe9bd}
+.noimg{border:2px solid #f2d691}
+.dt b{color:#0b4a63}.dt small{color:#4d7384}.dt em{color:#e2512f}
+.t3{background:#ffd166;color:#4a3300}
+.hb{border-color:#e2512f}.hb svg{stroke:#e2512f}.hb.on{background:#e2512f}.hb.on svg{fill:#fff;stroke:#fff}
+.pgn{color:#0b4a63}
+#det{background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 800' preserveAspectRatio='xMidYMax slice'><defs><linearGradient id='s' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='%2377cdee'/><stop offset='1' stop-color='%23e3f7fb'/></linearGradient></defs><rect width='400' height='800' fill='url(%23s)'/><circle cx='350' cy='-6' r='46' fill='%23ffd166'/><path d='M0 700q50-22 100-8t100 0 100-12 100 4V800H0z' fill='%23f6dfa8'/><path d='M0 700q50-22 100-8t100 0 100-12 100 4' fill='none' stroke='%23fff' stroke-width='6' opacity='.8'/></svg>") center bottom/cover no-repeat,#bfe8f7;color:var(--cream)}
+.dinfo h2,.dinfo p{color:#0b4a63}.dinfo p{color:#35677b}
+.dpr{color:#e2512f!important}
+.pickbtn{background:#ffffffc0;color:#0b4a63;border:2px solid #ff6b4a}.pickbtn svg{stroke:#e2512f}
+.pickbtn.on{background:#ff6b4a;color:#fff}.pickbtn.on svg{fill:#fff;stroke:#fff}
+.trn{color:#35677b}.credit{color:#35677b;opacity:1}
+.emp b{color:#e2512f}
+.mnote{color:#35677b}
+.mb,.mreset{background:#ffffffd0;color:#0b4a63;border:1px solid #ffffff;box-shadow:0 3px 10px #0e506a22}
+.mscene{box-shadow:0 14px 34px #0e506a40}
+.panel{background:#f3fcff;color:#0b4a63}
+#bp em{background:#ff6b4a;color:#fff}
+.fly svg{fill:#e2512f;stroke:#e2512f}
