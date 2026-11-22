@@ -1,29 +1,29 @@
 {
- "name": "RK Beach Muri Mixture (DEMO)",
- "brand": "RK Beach Muri",
+ "name": "RK Beach concept",
+ "brand": "RK Beach",
  "tagline": {
-  "en": "Concept preview, not a live menu"
+  "en": "Illustrative prototype"
  },
- "place": "RK Beach, Visakhapatnam",
- "currency": "₹",
+ "currency": "",
+ "allCourses": false,
+ "credit": "Original procedural 3D geometry for the RK Beach illustrative prototype. Menu engine scaffold supplied by ITPrior.",
  "cats": [
   "starters"
  ],
  "items": [
   {
    "id": "mm",
-   "img": "muri-mixture",
+   "img": "",
    "glb": "",
+   "renderer": "original-webgl",
    "cat": "starters",
    "veg": null,
    "price": null,
    "n": {
-    "en": "Muri Mixture",
-    "te": "మురి మిక్చర్"
+    "en": "Muri mixture"
    },
    "d": {
-    "en": "Placeholder text. Replace with vendor-confirmed description.",
-    "te": ""
+    "en": "Illustrative interaction study. Vendor, actual menu, ingredients, allergens, prices and food imagery are not confirmed. This preview cannot take orders."
    }
   }
  ]
