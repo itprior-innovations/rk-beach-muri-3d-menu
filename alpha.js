@@ -23,6 +23,7 @@ async function mount(root,opts){
  const P=new URLSearchParams(location.search),RTL=['ar','he','fa','ur'];
  let L=P.get('lang')||st.get('lang','')||(navigator.language||'en').slice(0,2);if(!UI[L])L='en';
  const tr=k=>(UI[L]&&UI[L][k])||(UI.en&&UI.en[k])||k,t=k=>esc(tr(k));
+ const pp=()=>{const m=tr('pricepend');return m==='pricepend'?'Price pending':m};
  const nm=i=>esc(i.n[L]||i.n.en||''),ds=i=>esc((i.d&&(i.d[L]||i.d.en))||''),money=n=>isNum(n)?esc(M.currency)+n.toLocaleString('en-IN'):'';
  const vgs=i=>i.veg===1||i.veg===0||i.veg===true||i.veg===false?`<span class="vg ${i.veg?'':'nv'}"></span>`:'';
  const A=window.A||{};let FISH='',GLBURL='';
@@ -60,7 +61,7 @@ async function mount(root,opts){
  function openDet(x){det=x;detail();$('#det').hidden=false}
  function closeDet(){det=-1;closeInst();const d=$('#det');d.hidden=true;d.innerHTML=''}
  function detail(){const i=M.items[det],d=$('#det');closeInst();
-  d.innerHTML=`<button class="ib back" id="bk" aria-label="${t('back')}">${ic.l}</button><div class="dst" id="dst"></div><div class="dinfo"><h2>${vgs(i)}${nm(i)}</h2><p>${ds(i)}</p><div class="dpr">${money(i.price)}</div><button class="pickbtn ${isPk(i)?'on':''}" id="pk">${ic.heart}<span>${t(isPk(i)?'picked':'pick')}</span></button><small class="trn">${has3d(i)?t('turn'):''}</small></div>`;
+  d.innerHTML=`<button class="ib back" id="bk" aria-label="${t('back')}">${ic.l}</button><div class="dst" id="dst"></div><div class="dinfo"><h2>${vgs(i)}${nm(i)}</h2><p>${ds(i)}</p><div class="dpr">${money(i.price)||esc(pp())}</div><button class="pickbtn ${isPk(i)?'on':''}" id="pk">${ic.heart}<span>${t(isPk(i)?'picked':'pick')}</span></button><small class="trn">${has3d(i)?t('turn'):''}</small></div>`;
   const s=$('#dst');
   if(hasR(i)){const el=document.createElement('div');el.className='rend';s.append(el);try{inst=REN[i.renderer]({item:i,lang:L,rtl:RTL.includes(L),t:tr});inst.mount(el,{item:i,lang:L,rtl:RTL.includes(L),spin:true})}catch(e){closeInst();el.remove();const m=tr('r_unsupported');s.innerHTML=`<div class="emp" role="status">${esc(m==='r_unsupported'?'3D is not supported on this device.':m)}</div>`;const tn=d.querySelector('.trn');if(tn)tn.textContent=''}}
   else if(hasMV(i)){s.innerHTML=`<model-viewer src="${GLBURL}" alt="${nm(i)}" camera-controls auto-rotate auto-rotate-delay="600" rotation-per-second="22deg" environment-image="neutral" exposure="1.3" shadow-intensity="1.1" shadow-softness="1" camera-orbit="25deg 66deg auto" min-camera-orbit="auto 0deg auto" max-camera-orbit="auto 95deg auto" field-of-view="28deg"></model-viewer>`}
