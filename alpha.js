@@ -35,10 +35,10 @@ async function mount(root,opts){
  const hasR=i=>!!(i.renderer&&REN[i.renderer]);
  const hasMV=i=>!!i.glb&&!!GLBURL&&!!(window.customElements&&(window.USE_MV||customElements.get('model-viewer')));
  const has3d=i=>hasR(i)||hasMV(i);
- let PK=[];try{PK=JSON.parse(st.get('pk','[]'));if(!Array.isArray(PK))PK=[]}catch(e){PK=[]}
- if(M.tabs)cOf=i=>i.cat;const courses=M.tabs?M.tabs.map(x=>x.id):['starters','main','desserts','drinks'].filter(c=>M.allCourses===false?M.items.some(i=>cOf(i)==c):true);const tl=c=>M.tabs?esc(((M.tabs.find(x=>x.id==c))||{}).label||c):t(c);const pr=i=>isNum(i.price)?money(i.price):isNum(i.demo_price_inr)?esc(M.currency)+i.demo_price_inr+' · '+SAMPLE:'';let SP={};try{SP=JSON.parse(st.get('sp','{}'))||{}}catch(e){SP={}}
+ let PK=[];try{localStorage.removeItem('pk');localStorage.removeItem('sp')}catch(e){}
+ if(M.tabs)cOf=i=>i.cat;const courses=M.tabs?M.tabs.map(x=>x.id):['starters','main','desserts','drinks'].filter(c=>M.allCourses===false?M.items.some(i=>cOf(i)==c):true);const tl=c=>M.tabs?esc(((M.tabs.find(x=>x.id==c))||{}).label||c):t(c);const pr=i=>isNum(i.price)?money(i.price):isNum(i.demo_price_inr)?esc(M.currency)+i.demo_price_inr+' · '+SAMPLE:'';let SP={}
  let cf=courses[0],vf='all',pg=0,det=-1,inst=null,dir=0;
- const isPk=i=>PK.includes(i.id),savePk=()=>st.set('pk',JSON.stringify(PK));
+ const isPk=i=>PK.includes(i.id),savePk=()=>{};
  const vis=()=>M.items.map((i,x)=>x).filter(x=>(M.oneList||cOf(M.items[x])==cf)&&(vf=='all'||(M.items[x].veg!=null&&(vf=='veg')==!!M.items[x].veg)));
  const cols=()=>innerWidth>=900?2:1,ps=()=>innerHeight<700?3:4;
  const E=h=>{const d=document.createElement('div');d.innerHTML=h.trim();return d.firstChild};
@@ -69,7 +69,7 @@ async function mount(root,opts){
   else if(hasMV(i)){s.innerHTML=`<model-viewer src="${GLBURL}" alt="${nm(i)}" camera-controls auto-rotate auto-rotate-delay="600" rotation-per-second="22deg" environment-image="neutral" exposure="1.3" shadow-intensity="1.1" shadow-softness="1" camera-orbit="25deg 66deg auto" min-camera-orbit="auto 0deg auto" max-camera-orbit="auto 95deg auto" field-of-view="28deg"></model-viewer>`}
   else if(IMG(i)){s.innerHTML=`<div class="ph"><img src="${IMG(i)}" alt="${nm(i)}"></div><span class="pend">${t('pending')}</span>`}
   else{d.classList.add('nm');d.querySelector('.dinfo').insertAdjacentHTML('afterbegin',`<span class="pend2">${esc(t('pending'))}</span>`)}
-  $('#bk').onclick=closeDet;d.querySelectorAll('[data-sp]').forEach(b=>b.onclick=()=>{SP[i.id]=b.dataset.sp;st.set('sp',JSON.stringify(SP));d.querySelectorAll('[data-sp]').forEach(x=>{x.classList.toggle('on',x==b);x.setAttribute('aria-pressed',String(x==b))})});$('#pk').onclick=()=>tog(i,$('#pk'));
+  $('#bk').onclick=closeDet;d.querySelectorAll('[data-sp]').forEach(b=>b.onclick=()=>{SP[i.id]=b.dataset.sp;d.querySelectorAll('[data-sp]').forEach(x=>{x.classList.toggle('on',x==b);x.setAttribute('aria-pressed',String(x==b))})});$('#pk').onclick=()=>tog(i,$('#pk'));
   let sx=null;const step=dd=>{const v=vis();if(v.length<2)return;det=v[(v.indexOf(det)+dd+v.length)%v.length];detail()};
   d.ontouchstart=e=>sx=e.touches[0].clientX;d.ontouchend=e=>{if(sx==null)return;const q=e.changedTouches[0].clientX-sx;sx=null;if(Math.abs(q)>90&&!e.target.closest('model-viewer,.rend'))step((q<0?1:-1)*(RTL.includes(L)?-1:1))}}
  function sheet(h){const s=$('#sheet');s.hidden=false;s.innerHTML=`<div class="panel">${h}</div>`;s.onclick=e=>{if(e.target==s)closeSheet()};return s}
