@@ -50,3 +50,5 @@ body{background:linear-gradient(#ffffff66,#bfe8f759),url("data:image/jpeg;base64
 .mark b{color:#eaf6fb;text-shadow:0 2px 10px #0009}
 .mark i{color:#ffc9b3}
 .mark:after{background:linear-gradient(90deg,#ff8a63,#ffe1a3)}
+#vdcr{display:block;margin-top:6px}
+#vdcr{background:#0a1c26e0;border-radius:10px;padding:4px 10px;color:#bfe3f2}#vdcr a{color:#ffd9c2;text-decoration:underline}
